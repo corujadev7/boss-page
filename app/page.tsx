@@ -28,7 +28,7 @@ export default function DonationPage() {
     setLoadingAmount(amount)
 
     try {
-      const payload = { amount: amount * 100}
+      const payload = { amount: amount * 100 }
       const response = await axios.post("https://api-checkout-one.vercel.app/create-transaction", payload)
 
       // backend devolve { id, qrcode }
@@ -57,12 +57,12 @@ export default function DonationPage() {
     setShowPayment(true)
   }
 
- const copyPixCode = () => {
-  if (pixData) {
-    navigator.clipboard.writeText(pixData.pixCode)
-    setCopied(true)
+  const copyPixCode = () => {
+    if (pixData) {
+      navigator.clipboard.writeText(pixData.pixCode)
+      setCopied(true)
+    }
   }
-}
 
   const formatTime = (seconds: number) => {
     const minutes = Math.floor(seconds / 60)
@@ -113,14 +113,18 @@ export default function DonationPage() {
       <div className="bg-gray-100 py-12">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            {/* Video Player Mockup */}
-            <div className="relative bg-black rounded-lg overflow-hidden mb-8">
-              <div className="aspect-video flex items-center justify-center">
-                <div className="text-center">
-                  <Play className="w-16 h-16 text-white mb-4 mx-auto" />
-                  <p className="text-white text-lg">essa condenação é</p>
-                  <div className="absolute bottom-4 left-4 text-white text-sm">00:04 / 02:09</div>
-                </div>
+            {/* Video Player */}
+            <div className="relative rounded-lg overflow-hidden mb-8">
+              <div className="aspect-[9/16]">
+                <iframe
+                  id="panda-01541c18-0bb9-42b1-8cc2-fa39477a5d86"
+                  src="https://player-vz-898a9fff-bc4.tv.pandavideo.com.br/embed/?v=01541c18-0bb9-42b1-8cc2-fa39477a5d86"
+                  className="w-full h-full border-0"
+                  allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture"
+                  allowFullScreen
+                  loading="lazy"
+                  fetchPriority="high"
+                />
               </div>
             </div>
 
